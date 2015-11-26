@@ -11,7 +11,7 @@ public class ContactList implements Serializable {
 
 	private static final long serialVersionUID = 6280555241805470080L;
 	
-	private ContactValidator validator;
+	transient private ContactValidator validator;
 	private List<Contact> contacts;
 	
 	/*
@@ -46,5 +46,30 @@ public class ContactList implements Serializable {
 	 */
 	public void removeContact(Contact contact) {
 		contacts.remove(contact);
+	}
+	
+	/*
+	 * @param contact the contact to find
+	 * @return true, if contains the contact
+	 */
+	public boolean contains(Contact contact) {
+		return contacts.contains(contact);
+	}
+	
+	/*
+	 * finds all contacts matching the given name
+	 * @param name the name to search for
+	 * @return list containing the matching contacts
+	 */
+	public List<Contact> findByName(String name) {
+		String pattern = "^.*" + name.toLowerCase() + ".*$";
+		List<Contact> filteredContacts = new ArrayList<>();
+		for (Contact contact : contacts) {
+			String firstname = contact.getFirstname();
+			String lastname = contact.getLastname();
+			if (firstname.matches(pattern) || (lastname != null && lastname.matches(pattern)))
+				filteredContacts.add(contact);
+		}
+		return filteredContacts;
 	}
 }

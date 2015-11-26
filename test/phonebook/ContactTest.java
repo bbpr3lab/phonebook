@@ -37,5 +37,19 @@ public class ContactTest {
 	public void testNullNameIsInvalid() {
 		assertFalse("null name should be invalid", validator.validate(contact));
 	}
+	
+	@Test
+	public void testContactEquals() {
+		Contact c1 = new Contact(), c2 = new Contact();
+		c1.setFirstname("foo");
+		c2.setFirstname("foo");
+		c1.setCellNumber("11-22-33");
+		c2.setCellNumber("11-22-33");
+		c1.setWorkEmail("email@example.com");
+		c2.setWorkEmail("email@example.com");
+		assertEquals("contacts with the same data should be equal", c1, c2);
+		c1.setWorkEmail("c1@example.com");
+		assertNotEquals("contacts with different data should not be equal", c1, c2);
+	}
 
 }

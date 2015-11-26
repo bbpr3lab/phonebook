@@ -16,7 +16,6 @@ public class ContactValidator {
 	public boolean validate(Contact contact) {
 		
 		String firstname = contact.getFirstname();
-		String lastname = contact.getLastname();
 		
 		String workEmail = contact.getWorkEmail();
 		String personalEmail = contact.getPersonalEmail();
@@ -32,7 +31,7 @@ public class ContactValidator {
 		boolean workNumberOK = phoneValidator.validate(workNumber);
 		boolean cellNumberOK = phoneValidator.validate(cellNumber);
 
-		return firstname != null && lastname != null 
+		return firstname != null
 				&& workEmailOK && personalEmailOK
 				&& homeNumberOK && workNumberOK && cellNumberOK;
 	}

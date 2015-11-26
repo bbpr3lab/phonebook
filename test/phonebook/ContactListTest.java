@@ -2,6 +2,8 @@ package phonebook;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -43,6 +45,29 @@ public class ContactListTest {
 		contactList.removeContact(validContact);
 		assertEquals("contactlist should be empty after removing last contact",
 				0, contactList.numberOfContacts());
+	}
+	
+	@Test
+	public void testSeachingContacts() throws InvalidContactException {
+		contactList.addContact(validContact);
+		List<Contact> first = contactList.findByName("first");
+		assertEquals(1, first.size());
+		
+		Contact anotherContact = new Contact();
+		anotherContact.setFirstname("another first");
+		contactList.addContact(anotherContact);
+		
+		first = contactList.findByName("first");
+		assertEquals(2, first.size());
+		
+		contactList.removeContact(first.get(0));
+		assertEquals(1, contactList.numberOfContacts());
+		
+		first = contactList.findByName("first");
+		assertEquals(1, first.size());
+		
+		List<Contact> second = contactList.findByName("second");
+		assertEquals(0, second.size());
 	}
 
 }
