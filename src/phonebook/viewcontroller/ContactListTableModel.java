@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 
 import phonebook.model.Contact;
@@ -17,7 +18,13 @@ public class ContactListTableModel extends AbstractTableModel {
 
 	private ContactListSerializer serializer;
 	private ContactList contactList;
+	private JTable table;
 	
+	
+	private static final String[] columnNames = {
+		"firstname", "lastname", "home number", "work number", "cell number",
+		"work email", "personal email"
+	};
 	/*
 	 * tracking the current file for the save action
 	 */
@@ -68,6 +75,12 @@ public class ContactListTableModel extends AbstractTableModel {
 		return null;
 	}
 	
+	
+	/*
+	 * load the contact list from a file
+	 * 
+	 * @param path the file to read from
+	 */
 	public void loadContactsFromPath(Path path) throws ClassNotFoundException, IOException {
 		contactList = serializer.load(path);
 		setCurrentFilepath(path);
@@ -75,6 +88,11 @@ public class ContactListTableModel extends AbstractTableModel {
 		fireTableDataChanged();
 	}
 	
+	/*
+	 * save the contact list to the file system
+	 * 
+	 * @param path the filename to save
+	 */
 	public void saveContactsToPath(Path path) throws FileNotFoundException, IOException {
 		serializer.save(path, contactList);
 		contactListDirty = false;
@@ -83,23 +101,7 @@ public class ContactListTableModel extends AbstractTableModel {
 
 	@Override
 	public String getColumnName(int column) {
-		switch (column) {
-		case 0:
-			return "firstname";
-		case 1:
-			return "lastname";
-		case 2:
-			return "home number";
-		case 3:
-			return "work number";
-		case 4:
-			return "cell number";
-		case 5:
-			return "work email";
-		case 6:
-			return "personal email";
-		}
-		return "unknown";
+		return columnNames[column];
 	}
 	
 	/*
@@ -146,15 +148,28 @@ public class ContactListTableModel extends AbstractTableModel {
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
 		return true;
 	}
-
+	
+	/*
+	 * @return the current file's path
+	 */
 	public Path getCurrentFilePath() {
 		return currentFilePath;
 	}
 	
+	/*
+	 * used by the enabling mechanism of the save action
+	 * 
+	 * @return whether the current file is null or not
+	 */
 	public boolean isCurrentFilepathValid() {
 		return currentFilePath != null;
 	}
 	
+	/*
+	 * add a contact to the contact list
+	 * 
+	 * @param contact the contact to add
+	 */
 	public void addContact(Contact contact) throws InvalidContactException {
 		contactList.addContact(contact);
 		contactListDirty = true;
@@ -165,6 +180,10 @@ public class ContactListTableModel extends AbstractTableModel {
 		return contactListDirty;
 	}
 	
+	/*
+	 * create a new contact list
+	 * performs the check for dirty contacts
+	 */
 	public void newContactList() {
 		DirtyCheckResult result = frame.dirtyCheck();
 		if (result == DirtyCheckResult.CANCEL || result == DirtyCheckResult.SAVE)
@@ -179,5 +198,23 @@ public class ContactListTableModel extends AbstractTableModel {
 	private void setCurrentFilepath(Path path) {
 		this.currentFilePath = path;
 		frame.enableSaveAction();
+	}
+	
+	/*
+	 * delete the selected contact from the list
+	 */
+	public void deleteSelectedContact() {
+		int rowIndex = table.getSelectedRow();
+		Contact contact = contactList.get(rowIndex);
+		contactList.removeContact(contact);
+		fireTableDataChanged();
+	}
+	
+	/*
+	 * set the table property
+	 * @param table
+	 */
+	public void setTable(JTable table) {
+		this.table = table;
 	}
 }

@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import phonebook.viewcontroller.ContactListTableModel;
 
 /*
- * the action that performs saving the contact list
+ * action class to perform the "save as" action
  */
 public class SaveContactsAction extends AbstractAction {
 	

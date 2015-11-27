@@ -8,6 +8,9 @@ import javax.swing.JFrame;
 
 import phonebook.viewcontroller.ContactListTableModel;
 
+/*
+ * action class for the "save" action 
+ */
 public class SaveContactsToCurrentFileAction extends SaveContactsAction {
 
 	public SaveContactsToCurrentFileAction(ContactListTableModel model, JFrame frame) {

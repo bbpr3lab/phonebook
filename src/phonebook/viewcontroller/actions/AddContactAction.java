@@ -20,6 +20,9 @@ import javax.swing.JTextField;
 import phonebook.model.Contact;
 import phonebook.viewcontroller.ContactListTableModel;
 
+/*
+ * action to add a new contact to the open contact list
+ */
 public class AddContactAction extends AbstractAction {
 	
 	private JFrame frame;

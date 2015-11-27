@@ -14,8 +14,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import phonebook.viewcontroller.actions.AddContactAction;
+import phonebook.viewcontroller.actions.DeleteContactAction;
 import phonebook.viewcontroller.actions.ExitAction;
 import phonebook.viewcontroller.actions.LoadContactsAction;
 import phonebook.viewcontroller.actions.NewContactListAction;
@@ -39,6 +43,7 @@ public class MainFrame extends JFrame {
 	private SaveContactsToCurrentFileAction saveContactsToCurrentFileAction;
 	private AddContactAction addContactAction;
 	private NewContactListAction newContactListAction;
+	private DeleteContactAction deleteContactAction;
 	private ExitAction exitAction;
 	
 	
@@ -73,26 +78,35 @@ public class MainFrame extends JFrame {
 		
 		setupActions();
 		
-		JTable table = new JTable(contactListTableModel);
-		table.setFillsViewportHeight(true);
-		JScrollPane sp = new JScrollPane(table);		
-		getContentPane().add(sp, BorderLayout.CENTER);
+		setupTable();
 		
-		JButton loadButton = new JButton(loadContactsAction);
-		JButton saveAsButton = new JButton(saveContactsAction);
-		JButton saveButton = new JButton(saveContactsToCurrentFileAction);
-		JButton addContactButton = new JButton(addContactAction);
-		JButton newContactListButton = new JButton(newContactListAction);
-		JPanel southPanel = new JPanel();
-		southPanel.add(loadButton);
-		southPanel.add(saveButton);
-		southPanel.add(saveAsButton);
-		southPanel.add(addContactButton);
-		southPanel.add(newContactListButton);
-		getContentPane().add(southPanel, BorderLayout.SOUTH);
+		setupButtons();
 		
 		setupMenu();
 
+	}
+	
+	private void setupTable() {
+		JTable table = new JTable(contactListTableModel);
+		table.getSelectionModel().addListSelectionListener(e-> {
+				ListSelectionModel lsm = (ListSelectionModel) e.getSource();
+				setDeleteActionEnabled(!lsm.isSelectionEmpty());
+		});
+		table.setFillsViewportHeight(true);
+		JScrollPane sp = new JScrollPane(table);		
+		getContentPane().add(sp, BorderLayout.CENTER);
+		contactListTableModel.setTable(table);
+	}
+	
+	private void setupButtons() {
+		JPanel southPanel = new JPanel();
+		southPanel.add(new JButton(loadContactsAction));
+		southPanel.add(new JButton(saveContactsAction));
+		southPanel.add(new JButton(saveContactsToCurrentFileAction));
+		southPanel.add(new JButton(addContactAction));
+		southPanel.add(new JButton(newContactListAction));
+		southPanel.add(new JButton(deleteContactAction));
+		getContentPane().add(southPanel, BorderLayout.SOUTH);
 	}
 	
 	private void setupMenu() {
@@ -108,6 +122,7 @@ public class MainFrame extends JFrame {
 		fileMenu.add(new JMenuItem(exitAction));
 		
 		editMenu.add(new JMenuItem(addContactAction));
+		editMenu.add(new JMenuItem(deleteContactAction));
 		
 		menuBar.add(fileMenu);
 		menuBar.add(editMenu);
@@ -124,6 +139,7 @@ public class MainFrame extends JFrame {
 		addContactAction = new AddContactAction(contactListTableModel, this);
 		newContactListAction = new NewContactListAction(contactListTableModel, this);
 		exitAction = new ExitAction(this);
+		deleteContactAction = new DeleteContactAction(contactListTableModel, this);
 	}
 	
 	private static final String DIRTY_MODEL_MESSAGE =
@@ -161,11 +177,21 @@ public class MainFrame extends JFrame {
 		return DirtyCheckResult.NOT_DIRTY;
 	}
 
+	/*
+	 * disable the save to current file action
+	 */
 	public void disableSaveAction() {
 		saveContactsToCurrentFileAction.setEnabled(false);
 	}
 	
+	/*
+	 * enable the save to current file action
+	 */
 	public void enableSaveAction() {
 		saveContactsToCurrentFileAction.setEnabled(true);
+	}
+	
+	public void setDeleteActionEnabled(boolean b) {
+		deleteContactAction.setEnabled(b);
 	}
 }
