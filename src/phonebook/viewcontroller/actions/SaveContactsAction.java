@@ -7,6 +7,7 @@ import javax.swing.AbstractAction;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 import phonebook.viewcontroller.ContactListTableModel;
 
@@ -22,7 +23,7 @@ public class SaveContactsAction extends AbstractAction {
 	protected ContactListTableModel model;
 
 	public SaveContactsAction(ContactListTableModel model, JFrame frame, String name) {
-		super(name);
+		super(name, UIManager.getIcon("FileView.floppyDriveIcon"));
 		this.frame = frame;
 		this.model = model;
 	}

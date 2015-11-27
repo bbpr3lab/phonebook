@@ -13,11 +13,18 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import phonebook.viewcontroller.actions.AddContactAction;
 import phonebook.viewcontroller.actions.DeleteContactAction;
@@ -46,6 +53,8 @@ public class MainFrame extends JFrame {
 	private NewContactListAction newContactListAction;
 	private DeleteContactAction deleteContactAction;
 	private ExitAction exitAction;
+	
+	private TableRowSorter<ContactListTableModel> tableSorter;
 	
 	
 	/*
@@ -97,15 +106,54 @@ public class MainFrame extends JFrame {
 		JScrollPane sp = new JScrollPane(table);		
 		getContentPane().add(sp, BorderLayout.CENTER);
 		contactListTableModel.setTable(table);
+		
+		JPopupMenu menu = new JPopupMenu();
+		menu.add(new JMenuItem(addContactAction));
+		menu.add(new JMenuItem(deleteContactAction));
+		table.setComponentPopupMenu(menu);
+		
+		tableSorter = new TableRowSorter<>(contactListTableModel);
+		table.setRowSorter(tableSorter);
+		
 	}
 	
 	private void setupButtons() {
+		JTextField searchField = new JTextField(15);
+		searchField.getDocument().addDocumentListener(new DocumentListener() {
+
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				setFilter();
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				setFilter();
+			}
+
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				// TODO Auto-generated method stub
+			}
+			
+			private void setFilter() {
+				RowFilter<ContactListTableModel, Object> filter;
+				try {
+					filter = RowFilter.regexFilter(searchField.getText(), 0);
+				} catch (java.util.regex.PatternSyntaxException ex) {
+					return;
+				}
+				tableSorter.setRowFilter(filter);
+			}
+			
+		});
 		JPanel southPanel = new JPanel();
+		southPanel.add(searchField);
+		southPanel.add(new JButton(newContactListAction));
 		southPanel.add(new JButton(loadContactsAction));
 		southPanel.add(new JButton(saveContactsAction));
 		southPanel.add(new JButton(saveContactsToCurrentFileAction));
 		southPanel.add(new JButton(addContactAction));
-		southPanel.add(new JButton(newContactListAction));
 		southPanel.add(new JButton(deleteContactAction));
 		getContentPane().add(southPanel, BorderLayout.SOUTH);
 	}

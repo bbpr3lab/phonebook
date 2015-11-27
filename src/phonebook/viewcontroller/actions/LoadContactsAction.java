@@ -25,10 +25,11 @@ public class LoadContactsAction extends AbstractAction {
 	private MainFrame frame;
 
 	public LoadContactsAction(ContactListTableModel model, MainFrame frame) {
-		super(LOAD_ACTION_NAME);
+		super(LOAD_ACTION_NAME, javax.swing.UIManager.getIcon("FileView.directoryIcon"));
 		this.model = model;
 		this.frame = frame;
 		putValue(MNEMONIC_KEY, KeyEvent.VK_O);
+		
 	}
 
 	@Override

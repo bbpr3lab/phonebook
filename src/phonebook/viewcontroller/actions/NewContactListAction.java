@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
+import javax.swing.UIManager;
 
 import phonebook.viewcontroller.ContactListTableModel;
 import phonebook.viewcontroller.MainFrame;
@@ -18,7 +19,7 @@ public class NewContactListAction extends AbstractAction {
 	private ContactListTableModel model;
 
 	public NewContactListAction(ContactListTableModel model, MainFrame frame) {
-		super("New");
+		super("New", UIManager.getIcon("FileView.fileIcon"));
 		this.frame = frame;
 		this.model = model;
 		putValue(MNEMONIC_KEY, KeyEvent.VK_N);
