@@ -11,7 +11,7 @@ public class ContactList implements Serializable {
 
 	private static final long serialVersionUID = -1916049214286413720L;
 	
-	transient private ContactValidator validator;
+	static final private ContactValidator validator = new ContactValidator();
 	private List<Contact> contacts;
 	
 	/*
@@ -19,7 +19,6 @@ public class ContactList implements Serializable {
 	 */
 	public ContactList() {
 		contacts = new ArrayList<Contact>();
-		validator = new ContactValidator();
 	}
 	
 	/*
@@ -75,5 +74,9 @@ public class ContactList implements Serializable {
 	
 	public Contact get(int index) {
 		return contacts.get(index);
+	}
+	
+	public boolean validate(Contact contact) {
+		return validator.validate(contact);
 	}
 }

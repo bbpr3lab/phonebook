@@ -12,7 +12,7 @@ public class SaveContactsToCurrentFileAction extends SaveContactsAction {
 
 	public SaveContactsToCurrentFileAction(ContactListTableModel model, JFrame frame) {
 		super(model, frame, "Save");
-		
+		setEnabled(false);
 	}
 
 	/* (non-Javadoc)

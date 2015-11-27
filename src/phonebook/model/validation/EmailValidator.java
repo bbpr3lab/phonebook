@@ -12,7 +12,7 @@ public class EmailValidator implements Validator {
 	@Override
 	public boolean validate(String email) {
 
-		if (email == null)
+		if (email == null || email.equals(""))
 			return true;
 		
 		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(email);

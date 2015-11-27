@@ -12,7 +12,7 @@ public class PhoneNumberValidator implements Validator {
 	@Override
 	public boolean validate(String number) {
 		
-		if (number == null)
+		if (number == null || number.equals(""))
 			return true;
 
 		Matcher matcher = VALID_PHONE_REGEX.matcher(number);

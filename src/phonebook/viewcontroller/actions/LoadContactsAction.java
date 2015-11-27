@@ -5,10 +5,11 @@ import java.io.File;
 
 import javax.swing.AbstractAction;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import phonebook.viewcontroller.ContactListTableModel;
+import phonebook.viewcontroller.MainFrame;
+import phonebook.viewcontroller.MainFrame.DirtyCheckResult;
 
 /*
  * The action that performs loading the contact list
@@ -20,9 +21,9 @@ public class LoadContactsAction extends AbstractAction {
 	private static final String LOAD_ACTION_NAME = "Open";
 	
 	private ContactListTableModel model;
-	private JFrame frame;
+	private MainFrame frame;
 
-	public LoadContactsAction(ContactListTableModel model, JFrame frame) {
+	public LoadContactsAction(ContactListTableModel model, MainFrame frame) {
 		super(LOAD_ACTION_NAME);
 		this.model = model;
 		this.frame = frame;
@@ -30,6 +31,11 @@ public class LoadContactsAction extends AbstractAction {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		DirtyCheckResult dirtyCheckResult = frame.dirtyCheck();
+		if (dirtyCheckResult == DirtyCheckResult.CANCEL || dirtyCheckResult == DirtyCheckResult.SAVE) {
+			return;
+		}
+		
 		JFileChooser fc = new JFileChooser();
 		int result = fc.showOpenDialog(frame);
 		if (result == JFileChooser.APPROVE_OPTION) {

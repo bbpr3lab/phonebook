@@ -183,7 +183,27 @@ public class Contact implements Serializable {
 		return true;
 	}
 	
+	/*
+	 * default ctor
+	 */
+	public Contact() {
+		
+	}
 	
+	/*
+	 * copy ctor used for validation hack...
+	 */
+	public Contact(Contact c) {
+		merge(c);
+	}
 	
-	
+	public void merge(Contact c) {
+		setFirstname(c.getFirstname());
+		setLastname(c.getLastname());
+		setHomeNumber(c.getHomeNumber());
+		setWorkNumber(c.getWorkNumber());
+		setCellNumber(c.getCellNumber());
+		setWorkEmail(c.getWorkEmail());
+		setPersonalEmail(c.getPersonalEmail());
+	}
 }
