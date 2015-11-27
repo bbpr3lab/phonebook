@@ -2,6 +2,7 @@ package phonebook.viewcontroller;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -114,6 +115,10 @@ public class MainFrame extends JFrame {
 		JMenu fileMenu = new JMenu("File");
 		JMenu helpMenu = new JMenu("Help");
 		JMenu editMenu = new JMenu("Edit");
+		
+		fileMenu.setMnemonic(KeyEvent.VK_F);
+		editMenu.setMnemonic(KeyEvent.VK_E);
+		helpMenu.setMnemonic(KeyEvent.VK_H);
 		
 		fileMenu.add(new JMenuItem(newContactListAction));
 		fileMenu.add(new JMenuItem(loadContactsAction));

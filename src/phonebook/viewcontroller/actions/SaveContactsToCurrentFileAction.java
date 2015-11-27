@@ -1,6 +1,7 @@
 package phonebook.viewcontroller.actions;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -15,6 +16,7 @@ public class SaveContactsToCurrentFileAction extends SaveContactsAction {
 
 	public SaveContactsToCurrentFileAction(ContactListTableModel model, JFrame frame) {
 		super(model, frame, "Save");
+		putValue(MNEMONIC_KEY, KeyEvent.VK_S);
 		setEnabled(false);
 	}
 

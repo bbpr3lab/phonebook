@@ -1,6 +1,7 @@
 package phonebook.viewcontroller.actions;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
 
@@ -19,6 +20,7 @@ public class DeleteContactAction extends AbstractAction {
 		super("Delete");
 		this.model = model;
 		this.frame = frame;
+		putValue(MNEMONIC_KEY, KeyEvent.VK_D);
 		setEnabled(false);
 	}
 

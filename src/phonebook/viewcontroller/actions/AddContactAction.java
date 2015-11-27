@@ -5,7 +5,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
@@ -15,7 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 
 import phonebook.model.Contact;
 import phonebook.viewcontroller.ContactListTableModel;
@@ -32,6 +31,7 @@ public class AddContactAction extends AbstractAction {
 		super("Add");
 		this.model = model;
 		this.frame = frame;
+		putValue(MNEMONIC_KEY, KeyEvent.VK_A);
 	}
 
 	@Override

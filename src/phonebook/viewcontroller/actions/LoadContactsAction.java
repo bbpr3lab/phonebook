@@ -1,6 +1,7 @@
 package phonebook.viewcontroller.actions;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.io.File;
 
 import javax.swing.AbstractAction;
@@ -27,6 +28,7 @@ public class LoadContactsAction extends AbstractAction {
 		super(LOAD_ACTION_NAME);
 		this.model = model;
 		this.frame = frame;
+		putValue(MNEMONIC_KEY, KeyEvent.VK_O);
 	}
 
 	@Override

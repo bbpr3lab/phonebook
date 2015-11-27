@@ -1,6 +1,7 @@
 package phonebook.viewcontroller.actions;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
 
@@ -20,6 +21,7 @@ public class NewContactListAction extends AbstractAction {
 		super("New");
 		this.frame = frame;
 		this.model = model;
+		putValue(MNEMONIC_KEY, KeyEvent.VK_N);
 	}
 	
 	@Override

@@ -1,6 +1,7 @@
 package phonebook.viewcontroller.actions;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 
 import javax.swing.AbstractAction;
@@ -17,6 +18,7 @@ public class ExitAction extends AbstractAction {
 	public ExitAction(MainFrame frame) {
 		super("Exit");
 		this.frame = frame;
+		putValue(MNEMONIC_KEY, KeyEvent.VK_X);
 	}
 
 	@Override

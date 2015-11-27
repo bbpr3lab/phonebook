@@ -204,10 +204,13 @@ public class ContactListTableModel extends AbstractTableModel {
 	 * delete the selected contact from the list
 	 */
 	public void deleteSelectedContact() {
-		int rowIndex = table.getSelectedRow();
-		Contact contact = contactList.get(rowIndex);
-		contactList.removeContact(contact);
-		fireTableDataChanged();
+		if (JOptionPane.showConfirmDialog(frame, "Are you sure?", "warning", 
+				JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+			int rowIndex = table.getSelectedRow();
+			Contact contact = contactList.get(rowIndex);
+			contactList.removeContact(contact);
+			fireTableDataChanged();
+		}
 	}
 	
 	/*
