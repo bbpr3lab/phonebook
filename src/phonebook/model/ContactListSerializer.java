@@ -1,4 +1,4 @@
-package phonebook;
+package phonebook.model;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

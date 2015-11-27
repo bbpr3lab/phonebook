@@ -1,15 +1,15 @@
-package phonebook;
+package phonebook.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import phonebook.validation.ContactValidator;
-import phonebook.validation.InvalidContactException;
+import phonebook.model.validation.ContactValidator;
+import phonebook.model.validation.InvalidContactException;
 
 public class ContactList implements Serializable {
 
-	private static final long serialVersionUID = 6280555241805470080L;
+	private static final long serialVersionUID = -1916049214286413720L;
 	
 	transient private ContactValidator validator;
 	private List<Contact> contacts;
@@ -71,5 +71,9 @@ public class ContactList implements Serializable {
 				filteredContacts.add(contact);
 		}
 		return filteredContacts;
+	}
+	
+	public Contact get(int index) {
+		return contacts.get(index);
 	}
 }

@@ -1,4 +1,4 @@
-package phonebook;
+package phonebook.model;
 
 import java.io.Serializable;
 
@@ -10,6 +10,8 @@ import java.io.Serializable;
 public class Contact implements Serializable {
 
 	private static final long serialVersionUID = -8307512249140185464L;
+	
+	public static final int NUMBER_OF_PROPERTIES = 7;
 	
 	/* 
 	 * name for the contact

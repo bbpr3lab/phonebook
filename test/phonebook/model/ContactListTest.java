@@ -1,4 +1,4 @@
-package phonebook;
+package phonebook.model;
 
 import static org.junit.Assert.*;
 
@@ -7,7 +7,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import phonebook.validation.InvalidContactException;
+import phonebook.model.Contact;
+import phonebook.model.ContactList;
+import phonebook.model.validation.InvalidContactException;
 
 public class ContactListTest {
 	

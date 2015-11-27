@@ -1,4 +1,4 @@
-package phonebook.validation;
+package phonebook.model.validation;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

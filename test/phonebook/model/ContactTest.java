@@ -1,11 +1,12 @@
-package phonebook;
+package phonebook.model;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import phonebook.validation.ContactValidator;
+import phonebook.model.Contact;
+import phonebook.model.validation.ContactValidator;
 
 public class ContactTest {
 	

@@ -1,6 +1,6 @@
-package phonebook.validation;
+package phonebook.model.validation;
 
-import phonebook.Contact;
+import phonebook.model.Contact;
 
 public class ContactValidator {
 	
