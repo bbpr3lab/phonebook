@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="phonebook.model.validation.Validator" x="1456" y="251">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="phonebook.viewcontroller.actions.DeleteContactAction"
+        x="607" y="135">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.ContactListTableModel"
+            endpointName="model" kind="Simple"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.MainFrame"
+            endpointName="frame" kind="Simple"/>
+        <Communication destinationClassName="phonebook.viewcontroller.ContactListTableModel"/>
+    </Class>
+    <Class
+        name="phonebook.viewcontroller.actions.SaveContactsToCurrentFileAction"
+        x="627" y="450">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="phonebook.viewcontroller.actions.SaveContactsAction"/>
+        <Communication destinationClassName="phonebook.viewcontroller.ContactListTableModel"/>
+    </Class>
+    <Class name="phonebook.viewcontroller.actions.ExitAction" x="611" y="234">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.MainFrame"
+            endpointName="frame" kind="Simple"/>
+    </Class>
+    <Class name="phonebook.model.validation.EmailValidator" x="1269" y="383">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="phonebook.model.validation.Validator"/>
+    </Class>
+    <Class name="phonebook.viewcontroller.actions.NewContactListAction"
+        x="609" y="-156">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.ContactListTableModel"
+            endpointName="model" kind="Simple"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.MainFrame"
+            endpointName="frame" kind="Simple"/>
+        <Communication destinationClassName="phonebook.viewcontroller.ContactListTableModel"/>
+    </Class>
+    <Class name="phonebook.model.Contact" x="1680" y="-89">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="phonebook.viewcontroller.ContactListTableModel" x="988" y="-89">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="phonebook.model.ContactList"
+            endpointName="contactList" kind="Simple"/>
+        <Association
+            destinationClassName="phonebook.model.ContactListSerializer"
+            endpointName="serializer" kind="Simple"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.MainFrame"
+            endpointName="frame" kind="Simple">
+            <Point x="947" y="568"/>
+            <Point x="584" y="564"/>
+        </Association>
+        <Communication destinationClassName="phonebook.model.Contact"/>
+        <Communication destinationClassName="phonebook.model.ContactListSerializer"/>
+        <Communication destinationClassName="phonebook.model.ContactList"/>
+        <Communication destinationClassName="phonebook.viewcontroller.MainFrame"/>
+    </Class>
+    <Class name="phonebook.viewcontroller.MainFrame.MainWindowAdapter"
+        x="23" y="315">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="phonebook.viewcontroller.MainFrame"/>
+    </Class>
+    <Class
+        name="phonebook.viewcontroller.actions.AddContactAction.AddContactDialog"
+        x="280" y="-157">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="phonebook.viewcontroller.MainFrame" x="13" y="84">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.actions.AddContactAction"
+            endpointName="addContactAction" kind="Simple"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.actions.NewContactListAction"
+            endpointName="newContactListAction" kind="Simple"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.actions.ExitAction"
+            endpointName="exitAction" kind="Simple"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.ContactListTableModel"
+            endpointName="contactListTableModel" kind="Simple">
+            <Point x="538" y="585"/>
+            <Point x="1022" y="594"/>
+        </Association>
+        <Association
+            destinationClassName="phonebook.viewcontroller.actions.LoadContactsAction"
+            endpointName="loadContactsAction" kind="Simple"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.actions.DeleteContactAction"
+            endpointName="deleteContactAction" kind="Simple"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.actions.SaveContactsAction"
+            endpointName="saveContactsAction" kind="Simple"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.actions.SaveContactsToCurrentFileAction"
+            endpointName="saveContactsToCurrentFileAction" kind="Simple"/>
+        <Communication destinationClassName="phonebook.viewcontroller.actions.SaveContactsAction"/>
+        <Communication destinationClassName="phonebook.viewcontroller.actions.SaveContactsToCurrentFileAction"/>
+        <Communication destinationClassName="phonebook.viewcontroller.ContactListTableModel"/>
+    </Class>
+    <Class name="phonebook.viewcontroller.actions.LoadContactsAction"
+        x="612" y="-65">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.ContactListTableModel"
+            endpointName="model" kind="Simple"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.MainFrame"
+            endpointName="frame" kind="Simple"/>
+        <Communication destinationClassName="phonebook.viewcontroller.ContactListTableModel"/>
+        <Communication destinationClassName="phonebook.viewcontroller.MainFrame"/>
+    </Class>
+    <Class name="phonebook.viewcontroller.MainFrame.DirtyCheckResult"
+        x="27" y="425">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="phonebook.viewcontroller.actions.SaveContactsAction"
+        x="622" y="321">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.ContactListTableModel"
+            endpointName="model" kind="Simple">
+            <Point x="900" y="309"/>
+        </Association>
+        <Communication destinationClassName="phonebook.viewcontroller.ContactListTableModel"/>
+    </Class>
+    <Class name="phonebook.model.validation.ContactValidator" x="1338" y="101">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="phonebook.model.validation.Validator"
+            endpointName="phoneValidator" kind="Simple">
+            <Point x="1405" y="206"/>
+        </Association>
+        <Association
+            destinationClassName="phonebook.model.validation.Validator"
+            endpointName="emailValidator" kind="Simple">
+            <Point x="1675" y="200"/>
+        </Association>
+        <Communication destinationClassName="phonebook.model.validation.Validator"/>
+        <Communication destinationClassName="phonebook.model.Contact"/>
+    </Class>
+    <Class name="phonebook.model.validation.InvalidContactException"
+        x="407" y="641">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="phonebook.model.validation.PhoneNumberValidator"
+        x="1556" y="380">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="phonebook.model.validation.Validator"/>
+    </Class>
+    <Class name="phonebook.Application" x="26" y="7">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.MainFrame"
+            endpointName="mainFrame" kind="Simple"/>
+    </Class>
+    <Class name="phonebook.viewcontroller.actions.AddContactAction"
+        x="606" y="25">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="phonebook.viewcontroller.ContactListTableModel"
+            endpointName="model" kind="Simple"/>
+    </Class>
+    <Class name="phonebook.model.ContactListSerializer" x="1138" y="259">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="phonebook.model.ContactList" x="1330" y="-83">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="phonebook.model.validation.ContactValidator"
+            endpointName="validator" kind="Simple"/>
+        <Association destinationClassName="phonebook.model.Contact"
+            endpointName="contacts" kind="Simple"/>
+        <Communication destinationClassName="phonebook.model.validation.ContactValidator"/>
+        <Communication destinationClassName="phonebook.model.Contact"/>
+    </Class>
+</ClassDiagram>
