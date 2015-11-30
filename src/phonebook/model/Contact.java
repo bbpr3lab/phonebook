@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 
 
-/*
+/**
  * Entity object class for contacts
  */
 public class Contact implements Serializable {
@@ -13,15 +13,15 @@ public class Contact implements Serializable {
 	
 	public static final int NUMBER_OF_PROPERTIES = 7;
 	
-	/* 
+	/**
 	 * name for the contact
 	 */
 	private String firstname, lastname;
-	/*
+	/**
 	 * email addresses
 	 */
 	private String workEmail, personalEmail;
-	/*
+	/**
 	 * phone numbers
 	 */
 	private String homeNumber, workNumber, cellNumber;
@@ -183,20 +183,24 @@ public class Contact implements Serializable {
 		return true;
 	}
 	
-	/*
+	/**
 	 * default ctor
 	 */
 	public Contact() {
 		
 	}
 	
-	/*
+	/**
 	 * copy ctor used for validation hack...
 	 */
 	public Contact(Contact c) {
 		merge(c);
 	}
 	
+	/**
+	 * set the fields of the object to the fields of the other object
+	 * @param c
+	 */
 	public void merge(Contact c) {
 		setFirstname(c.getFirstname());
 		setLastname(c.getLastname());

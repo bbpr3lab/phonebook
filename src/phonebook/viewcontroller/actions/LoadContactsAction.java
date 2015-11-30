@@ -12,7 +12,7 @@ import phonebook.viewcontroller.ContactListTableModel;
 import phonebook.viewcontroller.MainFrame;
 import phonebook.viewcontroller.MainFrame.DirtyCheckResult;
 
-/*
+/**
  * The action that performs loading the contact list
  * Buttons and menu items all use this action
  */

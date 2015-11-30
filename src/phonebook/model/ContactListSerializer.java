@@ -10,9 +10,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.file.Path;
 
+/**
+ * used to serialize and deserialize ContactListObjects
+ */
 public class ContactListSerializer {
 
-	/*
+	/**
+	 * load a ContactList object from the given filepath
+	 * 
 	 * @param path file to load from
 	 * @return the ContactList object read from the file
 	 */
@@ -31,7 +36,9 @@ public class ContactListSerializer {
 		return contactList;
 	}
 	
-	/*
+	/**
+	 * save contactlist to a file
+	 * 
 	 * @param path filename to save to
 	 * @param list the contactlist to save
 	 * @throws FileNotFoundException

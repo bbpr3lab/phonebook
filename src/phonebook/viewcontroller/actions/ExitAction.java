@@ -8,7 +8,7 @@ import javax.swing.AbstractAction;
 
 import phonebook.viewcontroller.MainFrame;
 
-/*
+/**
  * action called by various components to close the application properly
  */
 public class ExitAction extends AbstractAction {

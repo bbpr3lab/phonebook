@@ -9,7 +9,7 @@ import javax.swing.UIManager;
 import phonebook.viewcontroller.ContactListTableModel;
 import phonebook.viewcontroller.MainFrame;
 
-/*
+/**
  * action to create a blank contact list
  */
 public class NewContactListAction extends AbstractAction {

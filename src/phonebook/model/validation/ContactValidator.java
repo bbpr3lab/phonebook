@@ -2,14 +2,27 @@ package phonebook.model.validation;
 
 import phonebook.model.Contact;
 
+/**
+ * validates Contact objects 
+ *
+ */
 public class ContactValidator {
 	
+	/**
+	 * used for phone number validation
+	 */
 	private Validator phoneValidator = new PhoneNumberValidator();
+	
+	/**
+	 * used for email validation
+	 */
 	private Validator emailValidator = new EmailValidator();
 
-	/*
+	/**
 	 * validates contact
+	 * 
 	 * null values are OK
+	 * 
 	 * @param contact the contact to validate
 	 * @return returns true, if all the validators return true
 	 */

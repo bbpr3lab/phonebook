@@ -34,13 +34,15 @@ import phonebook.viewcontroller.actions.NewContactListAction;
 import phonebook.viewcontroller.actions.SaveContactsAction;
 import phonebook.viewcontroller.actions.SaveContactsToCurrentFileAction;
 
-
+/**
+ * the main window of the application
+ */
 public class MainFrame extends JFrame {
 	
 	private static final String MAIN_FRAME_TITLE = "Phonebook";
 	private static final Dimension INITIAL_DIMENSION = new Dimension(800, 400);
 	
-	/*
+	/**
 	 * the model for the JTable
 	 */
 	private ContactListTableModel contactListTableModel;
@@ -57,7 +59,7 @@ public class MainFrame extends JFrame {
 	private TableRowSorter<ContactListTableModel> tableSorter;
 	
 	
-	/*
+	/**
 	 * inner class for window closing event
 	 */
 	private class MainWindowAdapter extends WindowAdapter {
@@ -73,8 +75,10 @@ public class MainFrame extends JFrame {
 		}
 	}
 
-	/*
-	 * set up components
+	/**
+	 * constructor
+	 * 
+	 * setting up the components
 	 */
 	public MainFrame() {
 		super(MAIN_FRAME_TITLE);
@@ -96,6 +100,9 @@ public class MainFrame extends JFrame {
 
 	}
 	
+	/**
+	 * initialize the table object (including the model)
+	 */
 	private void setupTable() {
 		JTable table = new JTable(contactListTableModel);
 		table.getSelectionModel().addListSelectionListener(e-> {
@@ -117,6 +124,9 @@ public class MainFrame extends JFrame {
 		
 	}
 	
+	/**
+	 * initialize the bottom toolbar with the buttons and the search field 
+	 */
 	private void setupButtons() {
 		JTextField searchField = new JTextField(15);
 		searchField.getDocument().addDocumentListener(new DocumentListener() {
@@ -158,6 +168,9 @@ public class MainFrame extends JFrame {
 		getContentPane().add(southPanel, BorderLayout.SOUTH);
 	}
 	
+	/**
+	 * setting up the top menubar
+	 */
 	private void setupMenu() {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu fileMenu = new JMenu("File");
@@ -184,6 +197,9 @@ public class MainFrame extends JFrame {
 		setJMenuBar(menuBar);
 	}
 
+	/**
+	 * initialize the actions used by the components
+	 */
 	private void setupActions() {
 
 		loadContactsAction = new LoadContactsAction(contactListTableModel, this);
@@ -198,12 +214,12 @@ public class MainFrame extends JFrame {
 	private static final String DIRTY_MODEL_MESSAGE =
 			"You have unsaved changes. Save now?";
 	
-	/*
+	/**
 	 * enum for dirtyCheck()
 	 */
 	public static enum DirtyCheckResult { SAVE, NO_SAVE, CANCEL, NOT_DIRTY }
 	
-	/*
+	/**
 	 * used by components attempting operations that would lead to data loss
 	 * 
 	 * @return result of confirm dialog
@@ -230,20 +246,25 @@ public class MainFrame extends JFrame {
 		return DirtyCheckResult.NOT_DIRTY;
 	}
 
-	/*
+	/**
 	 * disable the save to current file action
 	 */
 	public void disableSaveAction() {
 		saveContactsToCurrentFileAction.setEnabled(false);
 	}
 	
-	/*
+	/**
 	 * enable the save to current file action
 	 */
 	public void enableSaveAction() {
 		saveContactsToCurrentFileAction.setEnabled(true);
 	}
 	
+	/**
+	 * used to enable/disable the delete row action
+	 * 
+	 * @param b true if the delete action should be enabled
+	 */
 	public void setDeleteActionEnabled(boolean b) {
 		deleteContactAction.setEnabled(b);
 	}

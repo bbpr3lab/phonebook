@@ -1,1 +1,5 @@
 phonebook
+phonebook.model
+phonebook.model.validation
+phonebook.viewcontroller
+phonebook.viewcontroller.actions

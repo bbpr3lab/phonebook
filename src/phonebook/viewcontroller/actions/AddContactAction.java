@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 import phonebook.model.Contact;
 import phonebook.viewcontroller.ContactListTableModel;
 
-/*
+/**
  * action to add a new contact to the open contact list
  */
 public class AddContactAction extends AbstractAction {
@@ -39,6 +39,9 @@ public class AddContactAction extends AbstractAction {
 		new AddContactDialog().setVisible(true);
 	}
 	
+	/**
+	 * dialog window for adding new contacts to the list
+	 */
 	private class AddContactDialog extends JDialog {
 		
 		private static final int FIELDLEN = 20;

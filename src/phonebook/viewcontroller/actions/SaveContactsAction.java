@@ -11,7 +11,7 @@ import javax.swing.UIManager;
 
 import phonebook.viewcontroller.ContactListTableModel;
 
-/*
+/**
  * action class to perform the "save as" action
  */
 public class SaveContactsAction extends AbstractAction {
@@ -19,7 +19,7 @@ public class SaveContactsAction extends AbstractAction {
 	private static final String ERROR_SAVING_CONTACTS_MESSAGE =
 			"Error saving contacts to file ";
 	
-	private JFrame frame;
+	protected JFrame frame;
 	protected ContactListTableModel model;
 
 	public SaveContactsAction(ContactListTableModel model, JFrame frame, String name) {

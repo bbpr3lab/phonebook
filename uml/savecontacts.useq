@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true">  
+  <object id="1" language="java" name="phonebook.viewcontroller.actions.SaveContactsAction" project="phonebook" 
+    file="/phonebook/src/phonebook/viewcontroller/actions/SaveContactsAction.java" binary="false" 
+    label="saveContactsAction" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="112" y="0"/>    
+    <execution id="2">      
+      <position height="294" width="163" x="5" y="99"/>    
+    </execution>  
+  </object>  
+  <object id="11" language="java" name="javax.swing.JFileChooser" project="phonebook" 
+    file="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib/rt.jar" binary="true" 
+    label="jFileChooser" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="4">      
+      <position height="21" width="114" x="172" y="120"/>    
+    </execution>    
+    <execution id="6">      
+      <position height="21" width="114" x="172" y="177"/>    
+    </execution>    
+    <execution id="8">      
+      <position height="21" width="114" x="172" y="210"/>    
+    </execution>  
+  </object>  
+  <object id="12" language="java" name="phonebook.viewcontroller.ContactListTableModel" project="phonebook" 
+    file="/phonebook/src/phonebook/viewcontroller/ContactListTableModel.java" binary="false" 
+    label="contactListTableModel" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="101" width="183" x="290" y="271"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="21" width="7" x="378" y="330"/>    
+    </execution>  
+  </object>  
+  <object id="17" language="java" name="phonebook.model.ContactListSerializer" project="phonebook" 
+    file="/phonebook/src/phonebook/model/ContactListSerializer.java" binary="false" label="contactListSerializer" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="14">      
+      <position height="21" width="165" x="477" y="292"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="JFileChooser()" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="showOpenDialog(java.awt.Component):int" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="getSelectedFile():java.io.File" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="9" operation="saveContactsToPath(java.nio.file.Path):void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="13" operation="save(java.nio.file.Path,phonebook.model.ContactList):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" operation="setCurrentFilepath(java.nio.file.Path):void" asynchronous="false" x="389" y="335">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>
+</sequence-diagram>

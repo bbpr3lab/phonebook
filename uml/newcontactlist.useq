@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true">  
+  <object id="1" language="java" name="phonebook.viewcontroller.actions.NewContactListAction" project="phonebook" 
+    file="/phonebook/src/phonebook/viewcontroller/actions/NewContactListAction.java" binary="false" 
+    label="newContactListAction" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="166" y="0"/>    
+    <execution id="2">      
+      <position height="255" width="177" x="5" y="99"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="phonebook.viewcontroller.ContactListTableModel" project="phonebook" 
+    file="/phonebook/src/phonebook/viewcontroller/ContactListTableModel.java" binary="false" 
+    label="contactListTableModel" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="4">      
+      <position height="213" width="183" x="186" y="120"/>    
+    </execution>    
+    <execution id="13">      
+      <position height="21" width="7" x="274" y="291"/>    
+    </execution>  
+  </object>  
+  <object id="14" language="java" name="phonebook.viewcontroller.MainFrame" project="phonebook" 
+    file="/phonebook/src/phonebook/viewcontroller/MainFrame.java" binary="false" label="mainFrame" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="391" y="0"/>    
+    <execution id="7">      
+      <position height="21" width="125" x="373" y="141"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="21" width="125" x="373" y="240"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="phonebook.model.ContactList" project="phonebook" 
+    file="/phonebook/src/phonebook/model/ContactList.java" binary="false" label="contactList" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="546" y="0"/>    
+    <execution id="9">      
+      <position height="21" width="103" x="502" y="186"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="newContactList():void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="dirtyCheck():phonebook.viewcontroller.MainFrame.DirtyCheckResult" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" operation="ContactList()" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="disableSaveAction():void" asynchronous="false" x="285" y="222">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" operation="fireTableDataChanged():void" asynchronous="false" x="286" y="294">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>
+</sequence-diagram>

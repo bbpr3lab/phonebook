@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true">  
+  <object id="1" language="java" name="phonebook.viewcontroller.actions.LoadContactsAction" project="phonebook" 
+    file="/phonebook/src/phonebook/viewcontroller/actions/LoadContactsAction.java" binary="false" 
+    label="loadContactsAction" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="63" width="0" x="0" y="92"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="389" width="165" x="5" y="169"/>    
+    </execution>  
+  </object>  
+  <object id="14" language="java" name="phonebook.viewcontroller.MainFrame" project="phonebook" 
+    file="/phonebook/src/phonebook/viewcontroller/MainFrame.java" binary="false" label="mainFrame" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="4">      
+      <position height="21" width="0" x="0" y="113"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="javax.swing.JFileChooser" project="phonebook" 
+    file="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib/rt.jar" binary="true" 
+    label="jFileChooser" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="7">      
+      <position height="21" width="114" x="303" y="190"/>    
+    </execution>    
+    <execution id="9">      
+      <position height="21" width="114" x="303" y="244"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="21" width="114" x="303" y="295"/>    
+    </execution>  
+  </object>  
+  <object id="16" language="java" name="phonebook.viewcontroller.ContactListTableModel" project="phonebook" 
+    file="/phonebook/src/phonebook/viewcontroller/ContactListTableModel.java" binary="false" 
+    label="contactListTableModel" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="13">      
+      <position height="196" width="183" x="421" y="341"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="21" width="7" x="509" y="412"/>    
+    </execution>    
+    <execution id="23">      
+      <position height="21" width="7" x="509" y="374"/>    
+    </execution>    
+    <execution id="22">      
+      <position height="21" width="183" x="421" y="495"/>    
+    </execution>  
+  </object>  
+  <object id="24" language="java" name="phonebook.model.ContactListSerializer" project="phonebook" 
+    file="/phonebook/src/phonebook/model/ContactListSerializer.java" binary="false" label="contactListSerializer" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="18">      
+      <position height="63" width="165" x="608" y="353"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="dirtyCheck():phonebook.viewcontroller.MainFrame.DirtyCheckResult" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="JFileChooser()" asynchronous="true">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" operation="showOpenDialog(java.awt.Component):int" asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="getSelectedFile():java.io.File" asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" operation="loadContactsFromPath(java.nio.file.Path):void" asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="17" operation="load(java.nio.file.Path):phonebook.model.ContactList" asynchronous="false">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" operation="setCurrentFilepath(java.nio.file.Path):void" asynchronous="false" x="531" y="395">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" operation="fireTableDataChanged():void" asynchronous="false">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="25" asynchronous="true">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>
+</sequence-diagram>

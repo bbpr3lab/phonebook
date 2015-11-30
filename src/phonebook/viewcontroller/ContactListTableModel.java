@@ -14,28 +14,58 @@ import phonebook.model.ContactListSerializer;
 import phonebook.model.validation.InvalidContactException;
 import phonebook.viewcontroller.MainFrame.DirtyCheckResult;
 
+/**
+ * Model object for the table
+ * 
+ * performs saving/loading of contactlists and handling actions
+ */
 public class ContactListTableModel extends AbstractTableModel {
 
+	/**
+	 * the object used for saving/loading the contactlist
+	 */
 	private ContactListSerializer serializer;
+	
+	/**
+	 * the ContactList object managed by the model
+	 * 
+	 * new one created every time new file is loaded
+	 */
 	private ContactList contactList;
+	
+	/**
+	 * the JTable instance for which the model is used
+	 */
 	private JTable table;
 	
-	
+	/**
+	 * the column names for the table
+	 */
 	private static final String[] columnNames = {
 		"firstname", "lastname", "home number", "work number", "cell number",
 		"work email", "personal email"
 	};
-	/*
+	
+	/**
 	 * tracking the current file for the save action
 	 */
 	private Path currentFilePath;
-	/*
+	
+	/**
 	 * tracking whether the contact list has been edited since last save
 	 */
 	private boolean contactListDirty;
 	
+	/**
+	 * reference to the parent frame
+	 */
 	private MainFrame frame;
 	
+	/**
+	 * constructor
+	 * 
+	 * @param frame parent frame reference
+	 */
 	public ContactListTableModel(MainFrame frame) {
 		serializer = new ContactListSerializer();
 		contactList = new ContactList();
@@ -76,8 +106,10 @@ public class ContactListTableModel extends AbstractTableModel {
 	}
 	
 	
-	/*
+	/**
 	 * load the contact list from a file
+	 * 
+	 * used by the LoadContactsAction
 	 * 
 	 * @param path the file to read from
 	 */
@@ -88,8 +120,10 @@ public class ContactListTableModel extends AbstractTableModel {
 		fireTableDataChanged();
 	}
 	
-	/*
+	/**
 	 * save the contact list to the file system
+	 * 
+	 * used by the SaveContactsAction
 	 * 
 	 * @param path the filename to save
 	 */
@@ -104,9 +138,6 @@ public class ContactListTableModel extends AbstractTableModel {
 		return columnNames[column];
 	}
 	
-	/*
-	 * TODO: fix this...
-	 */
 	@Override
 	public void setValueAt(Object value, int rowIndex, int columnIndex) {
 		Contact oldContact = contactList.get(rowIndex);
@@ -149,14 +180,14 @@ public class ContactListTableModel extends AbstractTableModel {
 		return true;
 	}
 	
-	/*
+	/**
 	 * @return the current file's path
 	 */
 	public Path getCurrentFilePath() {
 		return currentFilePath;
 	}
 	
-	/*
+	/**
 	 * used by the enabling mechanism of the save action
 	 * 
 	 * @return whether the current file is null or not
@@ -165,7 +196,7 @@ public class ContactListTableModel extends AbstractTableModel {
 		return currentFilePath != null;
 	}
 	
-	/*
+	/**
 	 * add a contact to the contact list
 	 * 
 	 * @param contact the contact to add
@@ -180,8 +211,9 @@ public class ContactListTableModel extends AbstractTableModel {
 		return contactListDirty;
 	}
 	
-	/*
+	/**
 	 * create a new contact list
+	 * 
 	 * performs the check for dirty contacts
 	 */
 	public void newContactList() {
@@ -200,7 +232,7 @@ public class ContactListTableModel extends AbstractTableModel {
 		frame.enableSaveAction();
 	}
 	
-	/*
+	/**
 	 * delete the selected contact from the list
 	 */
 	public void deleteSelectedContact() {
@@ -213,7 +245,7 @@ public class ContactListTableModel extends AbstractTableModel {
 		}
 	}
 	
-	/*
+	/**
 	 * set the table property
 	 * @param table
 	 */

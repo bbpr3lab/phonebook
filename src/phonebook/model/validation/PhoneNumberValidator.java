@@ -3,6 +3,9 @@ package phonebook.model.validation;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Validator implementation for phone numbers
+ */
 public class PhoneNumberValidator implements Validator {
 
 

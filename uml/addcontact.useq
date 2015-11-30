@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true">  
+  <object id="1" language="java" name="phonebook.viewcontroller.actions.AddContactAction" project="phonebook" 
+    file="/phonebook/src/phonebook/viewcontroller/actions/AddContactAction.java" binary="false" label="addContactAction" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="109" y="0"/>    
+    <execution id="2">      
+      <position height="95" width="161" x="5" y="104"/>    
+    </execution>  
+  </object>  
+  <object id="7" language="java" name="phonebook.viewcontroller.actions.AddContactAction.AddContactDialog" 
+    project="phonebook" file="/phonebook/src/phonebook/viewcontroller/actions/AddContactAction.java" binary="false" 
+    label="addContactDialog" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="412" y="0"/>    
+    <execution id="4">      
+      <position height="21" width="161" x="170" y="125"/>    
+    </execution>    
+    <execution id="6">      
+      <position height="21" width="161" x="170" y="157"/>    
+    </execution>    
+    <execution id="8">      
+      <position height="265" width="161" x="170" y="225"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="21" width="161" x="170" y="448"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="phonebook.model.Contact" project="phonebook" 
+    file="/phonebook/src/phonebook/model/Contact.java" binary="false" label="contact" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="514" y="0"/>    
+    <execution id="10">      
+      <position height="21" width="91" x="335" y="246"/>    
+    </execution>  
+  </object>  
+  <object id="16" language="java" name="phonebook.viewcontroller.ContactListTableModel" project="phonebook" 
+    file="/phonebook/src/phonebook/viewcontroller/ContactListTableModel.java" binary="false" 
+    label="contactListTableModel" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="588" y="0"/>    
+    <execution id="12">      
+      <position height="105" width="183" x="430" y="301"/>    
+    </execution>  
+  </object>  
+  <object id="19" language="java" name="phonebook.model.ContactList" project="phonebook" 
+    file="/phonebook/src/phonebook/model/ContactList.java" binary="false" label="contactList" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="690" y="0"/>    
+    <execution id="18">      
+      <position height="63" width="103" x="617" y="322"/>    
+    </execution>  
+  </object>  
+  <object id="22" language="java" name="phonebook.model.validation.ContactValidator" project="phonebook" 
+    file="/phonebook/src/phonebook/model/validation/ContactValidator.java" binary="false" label="contactValidator" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="766" y="0"/>    
+    <execution id="21">      
+      <position height="21" width="138" x="724" y="343"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="AddContactDialog()" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="setVisible(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="9" operation="Contact()" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="addContact(phonebook.model.Contact):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" operation="dispose():void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="17" operation="addContact(phonebook.model.Contact):void" asynchronous="false">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="20" operation="validate(phonebook.model.Contact):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>
+</sequence-diagram>

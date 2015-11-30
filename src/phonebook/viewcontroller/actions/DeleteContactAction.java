@@ -10,7 +10,7 @@ import javax.swing.UIManager;
 import phonebook.viewcontroller.ContactListTableModel;
 import phonebook.viewcontroller.MainFrame;
 
-/*
+/**
  * action class to perform deletion of the selection contact
  */
 public class DeleteContactAction extends AbstractAction {
