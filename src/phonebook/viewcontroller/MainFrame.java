@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -149,7 +150,7 @@ public class MainFrame extends JFrame {
 			private void setFilter() {
 				RowFilter<ContactListTableModel, Object> filter;
 				try {
-					filter = RowFilter.regexFilter(searchField.getText(), 0);
+					filter = RowFilter.regexFilter(searchField.getText(), 0, 1);
 				} catch (java.util.regex.PatternSyntaxException ex) {
 					return;
 				}
